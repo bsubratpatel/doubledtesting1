@@ -39,6 +39,7 @@ const WhatWeServeSection = () => {
           {items.map((item) => (
             <div
               key={item.title}
+              data-animate="card"
               className="group rounded-xl bg-background p-6 shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-card-hover)]"
             >
               <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">

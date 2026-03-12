@@ -1,16 +1,12 @@
 import { MapPin, Phone } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Footer = () => {
   return (
     <footer className="bg-foreground py-12">
       <div className="container">
         <div className="flex flex-col items-center gap-4 text-center">
-          <h3 className="font-heading text-2xl font-bold text-background">
-            Double D's Cafe & Bakes
-          </h3>
-          <p className="font-body text-sm tracking-[0.15em] uppercase text-muted-foreground">
-            friends • food • coffee
-          </p>
+          <img src={logo} alt="Double D's Cafe & Bakes" className="h-16 w-auto" />
           <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-muted-foreground">
             <span className="flex items-center gap-1">
               <MapPin className="h-3.5 w-3.5" />

@@ -5,7 +5,7 @@ const AboutSection = () => {
     <section id="about" className="bg-background py-16 md:py-20">
       <div className="container">
         <div className="grid items-center gap-10 md:grid-cols-2">
-          <div className="overflow-hidden rounded-2xl shadow-lg">
+          <div data-animate="image" className="overflow-hidden rounded-2xl shadow-lg">
             <img
               src={aboutImage}
               alt="Double D's Cafe entrance with warm neon signage"

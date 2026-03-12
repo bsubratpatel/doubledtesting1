@@ -52,6 +52,7 @@ const ReviewsSection = () => {
           {testimonials.map((t, i) => (
             <blockquote
               key={i}
+              data-animate="card"
               className="rounded-xl bg-card p-6 shadow-[var(--shadow-card)]"
             >
               <p className="font-body text-base italic leading-relaxed text-foreground">
