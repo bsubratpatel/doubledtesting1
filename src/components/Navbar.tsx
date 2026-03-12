@@ -47,7 +47,7 @@ const Navbar = () => {
           }}
           className="flex items-center gap-2">
           
-          <img alt="Double D's Cafe & Bakes" className="h-16 w-auto" src="/lovable-uploads/656e6251-0344-4c5b-b758-dfa8d14ea73b.png" />
+          <img alt="Double D's Cafe & Bakes" className="h-24 w-auto" src="/lovable-uploads/656e6251-0344-4c5b-b758-dfa8d14ea73b.png" />
         </a>
 
         {/* Desktop */}
