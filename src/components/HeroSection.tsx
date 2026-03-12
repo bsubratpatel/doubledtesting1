@@ -35,7 +35,7 @@ const HeroSection = () => {
             </p>
           </div>
           <div className="animate-fade-in relative">
-            <div className="overflow-hidden rounded-2xl shadow-2xl">
+            <div data-animate="image" className="overflow-hidden rounded-2xl shadow-2xl">
               <img
                 src={heroImage}
                 alt="Inside Double D's Cafe & Bakes - cozy cafe atmosphere with warm lighting"
