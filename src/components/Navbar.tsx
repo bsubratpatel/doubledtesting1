@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X, MapPin } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const MAPS_LINK = "https://maps.google.com/?q=Double+D's+Cafe+%26+Bakes+Sambalpur";
 
@@ -10,14 +11,43 @@ const navLinks = [
   { label: "Visit", href: "#visit" },
 ];
 
+const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  if (!href.startsWith("#")) return;
+  e.preventDefault();
+  const target = document.querySelector(href);
+  if (target) {
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+};
+
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-primary-foreground/10 bg-primary/95 backdrop-blur-md">
+    <nav
+      className={`sticky top-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "border-b border-primary-foreground/10 bg-primary/98 shadow-lg backdrop-blur-md"
+          : "bg-primary backdrop-blur-md"
+      }`}
+    >
       <div className="container flex h-16 items-center justify-between">
-        <a href="#" className="font-heading text-lg font-bold text-primary-foreground">
-          Double D's
+        <a
+          href="#"
+          onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
+          className="flex items-center gap-2"
+        >
+          <img src={logo} alt="Double D's Cafe & Bakes" className="h-12 w-auto" />
         </a>
 
         {/* Desktop */}
@@ -26,6 +56,7 @@ const Navbar = () => {
             <a
               key={l.href}
               href={l.href}
+              onClick={(e) => handleSmoothScroll(e, l.href)}
               className="font-body text-sm text-secondary/80 transition-colors hover:text-primary-foreground"
             >
               {l.label}
@@ -59,7 +90,10 @@ const Navbar = () => {
             <a
               key={l.href}
               href={l.href}
-              onClick={() => setOpen(false)}
+              onClick={(e) => {
+                handleSmoothScroll(e, l.href);
+                setOpen(false);
+              }}
               className="block py-2 font-body text-sm text-secondary/80 hover:text-primary-foreground"
             >
               {l.label}
